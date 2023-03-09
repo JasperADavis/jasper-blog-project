@@ -24,9 +24,9 @@ from functools import wraps
 
 # ------------------- EMAIL INFO ------------------- #
 
-MY_EMAIL = "jasper.experimenting@gmail.com"
-PASSWORD = "iresrqltvmrbtkpq"
-my_email_y = "jasper.experimenting@yahoo.com"
+MY_EMAIL = ""
+PASSWORD = ""
+my_email_y = ""
 
 # ------------------- CONSTANTS ------------------- #
 today = dt.date.today()
@@ -103,7 +103,6 @@ class Comment(db.Model):
     parent_post = relationship("BlogPost", back_populates="comments")
 
 
-
 with app.app_context():
     db.create_all()
 
@@ -142,7 +141,6 @@ def get_all_posts():
         CURRENT_USER_ID = int(current_user.get_id())
         AUTHOR = User.query.get(CURRENT_USER_ID).name
         print(f"current user: {AUTHOR}")
-
 
     if CURRENT_USER_ID is 1:
         IS_ADMIN = True
